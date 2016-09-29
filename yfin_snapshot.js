@@ -4,7 +4,7 @@ var yahooFinance = require('yahoo-finance');
 const util = require('util')
 
 
-export const go = async(ticker) => {
+export const yFinSnapshot = async(ticker) => {
 const snapshot = await yahooFinance.snapshot({
   symbol: ticker,
   fields: [
@@ -34,10 +34,6 @@ const snapshot = await yahooFinance.snapshot({
             'm4', // 200 Day Moving Average
             'j1', // Float Shares
 
-
-
-
-
           ],
 
   // fields: ['s', 'n', 'd1', 'l1', 'y', 'r','j2','f6'],
@@ -46,5 +42,5 @@ const snapshot = await yahooFinance.snapshot({
 snapshot['marketCapitalization'] = yFinNumberConverter(snapshot['marketCapitalization']);
 snapshot['sharesOutstanding'] = snapshot['marketCapitalization'] / snapshot['lastTradePriceOnly'];
 
-  console.log(snapshot);
+  return snapshot;
 }
