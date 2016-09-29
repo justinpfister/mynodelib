@@ -4,7 +4,7 @@
 const numeral = require('numeral');
 const isNumeric = require("isnumeric");
 
-const convertNumber = (num) => {
+export const yFinNumberConverter = (num) => {
   const number = numeral().unformat(num);
   const lastchar = num.substr(-1);
   if(!isNumeric(lastchar)){
@@ -21,5 +21,3 @@ const convertNumber = (num) => {
   return number;
 
 };
-
-console.log(convertNumber('6.5B'));
