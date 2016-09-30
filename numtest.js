@@ -1,6 +1,5 @@
 // Test for me!!
 
-
 const numeral = require('numeral');
 const isNumeric = require("isnumeric");
 
